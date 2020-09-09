@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h1>Лазерный излучатель</h1>
+<table border="1">
+	<tr>
+		<td>
+		<b><big>Фото модуля</big></b>
+<img src="http://scrumpoker.eu/wp-content/uploads/2019/04/400px-Arduino_KY-008_Laser_sensor_module_Sku_137473.jpg">
+</td>
+<td>
+	<b><big>Схема подключения к Arduino</big></b>
+	<img src="http://scrumpoker.eu/wp-content/uploads/2019/04/KY-008-Laser-Module-Arduino-Tutorial.png">
+</td>
+</tr>
+<tr>
+	<td colspan="2">
+		
+        Это устройство Keyes - одно из наиболее распространенных устройств в наборах датчиков Arduino. В сочетании с другими компонентами его можно использовать для создания растяжек или оптических эффектов. 
+
+        <br>KY-008 особенно удобен, потому что он может питаться напрямую от выходного контакта Arduino, поскольку он потребляет только 30 мА от процессора, который имеет выходы, рассчитанные на 40 мА.
+	</td>
+</tr>
+<tr>
+	<td colspan="2">
+		<b><big>Код программы для подключения к Arduino</big></b>
+         <br>	int laserPin = 10;
+  <br>     void setup ()
+ <br> {
+ <br>pinMode (laserPin, OUTPUT); // define the digital output interface 13 feet
+    <br> }
+    <br>  void loop () {
+    <br> laserEmiter(laserPin,15,5);
+ <br>}
+ <br>void laserEmiter(int laserPin,int timeToBurn,int timeToRest){//made by Ilja Kazantsev
+ <br>digitalWrite (laserPin, HIGH); // Turn Laser On
+ <br>delay (timeToBurn);// delay while it burns
+ <br>digitalWrite (laserPin, LOW); // Turn Laser Off
+ <br>delay (timeToRest);//delay till new cicle
+ <br>}
+
+ <br>void setup ()
+<br> {
+ <br>pinMode (laserPin, OUTPUT); // define the digital output interface 13 feet
+ <br>}
+ <br>void loop () {
+ <br>laserEmiter(laserPin,15,5);
+ <br>}
+ <br>void laserEmiter(int laserPin,int timeToBurn,int timeToRest){//made by Ilja Kazantsev
+ <br>digitalWrite (laserPin, HIGH); // Turn Laser On
+ <br>delay (timeToBurn);// delay while it burns
+ <br>digitalWrite (laserPin, LOW); // Turn Laser Off
+ <br>delay (timeToRest);//delay till new cicle
+ <br>}
+
+
+	</td>
+</tr>
+<tr>
+	<td colspan="2">
+		<a href="http://scrumpoker.eu/%D1%81%D0%BF%D0%B5%D1%86%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D1%8B/arduino/%D0%B1%D0%B8%D0%B1%D0%BB%D0%B8%D0%BE%D1%82%D0%B5%D0%BA%D0%B0-%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D0%B5%D0%B9-arduino/%D0%BB%D0%B0%D0%B7%D0%B5%D1%80%D0%BD%D1%8B%D0%B9-%D0%B8%D0%B7%D0%BB%D1%83%D1%87%D0%B0%D1%82%D0%B5%D0%BB%D1%8C-laser-emiter/">Ссылка на источник</a>
+	</td>
+</tr>
+</table>
+</body>
+</html>
