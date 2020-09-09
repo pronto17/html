@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h1>Датчик для избегания препятствий KY-032</h1>
+<table border="1">
+	<tr>
+		<td>
+		<b><big>Фото модуля</big></b>
+<img src="http://scrumpoker.eu/arduino/img/AvoidanceSensor1.jpg">
+</td>
+<td>
+	<b><big>Схема подключения к Arduino</big></b>
+	<img src="http://scrumpoker.eu/arduino/img/AvoidanceSensor5.jpg">
+</td>
+</tr>
+<tr>
+	<td colspan="2">
+		“KY-032” – модуль представляет собой инфракрасный датчик обнаружения препятствий. Устройство имеет передатчик (IR LED), излучающий инфракрасный луч частотой 38 кГц, который принимается приемником (IR receiver) на плате. При приближении какого-либо предмета к сенсору (близость регулируется потенциометром) на выходе
+
+        <br>“OUT” появляется низкий уровень напряжения и включается светодиод на плате модуля.
+	</td>
+</tr>
+<tr>
+	<td colspan="2">
+		<b><big>Код программы для подключения к Arduino</big></b>
+         <br>	digitalWrite( enablePin, HIGH);     //Включить внутренний сигнал 38 кГц
+  <br>      microDelay( 210);                   //Задержка 210µs(8 пульсов по 38kHz)
+ <br> if( digitalRead( outputPin))        //Если Output детектора равен HIGH
+ <br>{
+   <br>   objectDetect = false;           //Препятсвия не было найдено
+  <br>}
+ <br> else                                //Но если Output равен LOW,
+ <br> {
+   <br>   microDelay( 395);               //Опять ждать 15 пульсов
+    <br>  if( digitalRead( outputPin))    //Если Output теперь равен HIGH
+    <br>  {
+     <br>     objectDetect = false;       //Препятсвия не было найдено
+    <br>  }
+    <br>  else                            //Если Output до сих пор LOW
+    <br>  {
+    <br>      objectDetect = true;        //Препятсвие било обнаружено
+    <br>  }
+ <br> }
+ <br> digitalWrite( enablePin, LOW);      //Выключить внутренний сигнал 38kHz
+            
+	</td>
+</tr>
+<tr>
+	<td colspan="2">
+		<a href="http://scrumpoker.eu/arduino/avoidanceSensor.php">Ссылка на источник</a>
+	</td>
+</tr>
+</table>
+</body>
+</html>
